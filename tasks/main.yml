@@ -53,7 +53,7 @@
   
   - name: create core
     become_user: solr
-    shell: bin/solr create -c "{{item}}" -d "{{confdir}}"
+    shell: bin/solr create -c {{item}} -d {{confdir}}/{{item}}
     args:
       chdir: ~/solr-{{version}}
     when: "item not in solr_cores_current.content"
